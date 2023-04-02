@@ -1,6 +1,6 @@
 # Full Cycle Challenge 02
 
-A docker-compose application Node Application to insert define names in mysql and show using NGINX
+A docker-compose application to insert define names in mysql and show using node and reverse proxy using nginx.
 
 ## To run this application
 
