@@ -2,17 +2,9 @@
 
 A docker-compose application Node Application to insert define names in mysql and show using NGINX
 
-## Link to access image
-
-![Link]<https://hub.docker.com/r/lucasvanni/fullcycle02>
-
-### Tags
-
-- Latest - 99.65 MB [To dev]
-
 ## To run this application
 
-- Use command `docker run -d --name go lucasvanni/fullcycle02` to getting your app online
-- And use command `docker logs go`
+- Use command `docker-compose up -d` to getting your app online and access localhost:8080
 
 ### Result expected
+![image](https://user-images.githubusercontent.com/26672576/229382904-aad8fb3d-52e4-447f-ba7e-0f06dd9381bb.png)
