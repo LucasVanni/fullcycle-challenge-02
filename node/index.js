@@ -1,27 +1,29 @@
 const express = require("express");
 
 const app = express();
+const port = 3000;
 
-const porta = 3000;
-
-const mysql = require("mysql");
-
-const connection = mysql.createConnection({
+const config = {
   host: "db",
   user: "root",
   password: "root",
   database: "nodedb",
-});
+};
+
+const mysql = require("mysql");
+const connection = mysql.createConnection(config);
 
 connection.query(
   `CREATE TABLE IF NOT EXISTS people (id int not null auto_increment, name varchar(255), primary key(id));`
 );
-
 connection.query(`INSERT INTO people(name) values('Lucas');`);
 connection.query(`INSERT INTO people(name) values('Francisco');`);
 connection.query(`INSERT INTO people(name) values('João');`);
+connection.end();
 
 app.get("/", (_req, res) => {
+  const connection = mysql.createConnection(config);
+
   connection.query("SELECT * FROM people", function (err, result, fields) {
     if (err) throw err;
 
@@ -37,6 +39,6 @@ app.get("/", (_req, res) => {
   connection.end();
 });
 
-app.listen(porta, () => {
-  console.log("Rodando na porta " + porta);
+app.listen(port, () => {
+  console.log("Rodando na porta " + port);
 });
